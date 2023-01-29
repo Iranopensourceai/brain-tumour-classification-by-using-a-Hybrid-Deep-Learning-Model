@@ -2,7 +2,8 @@
  1.2 Use flow_from_dataframe for read data
 '''
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
-def Read_flow_from_dataframe(train_df,test_df):
+class_label= ["no_tumor", "pituitary_tumor", "meningioma_tumor", "glioma_tumor"]
+def Read_flow_from_dataframe(train_df,test_df,BATCH_SIZE):
     train_datagen= ImageDataGenerator()
     train_set= train_datagen.flow_from_dataframe(train_df,
                                                x_col='images',
