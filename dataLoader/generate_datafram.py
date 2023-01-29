@@ -1,5 +1,8 @@
 import os
 import pandas as pd
+'''
+ 1.1 add image path and labels in datafram
+'''
 def generate_datafram(path):
     train_labels = []
     train_images = []
