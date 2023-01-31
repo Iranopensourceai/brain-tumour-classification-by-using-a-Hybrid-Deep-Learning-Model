@@ -1,19 +1,15 @@
-from torch import optim
-import torch.nn as nn
+
+
 import torch
 import numpy as np
 import time
-from Model import init_model
 
-device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-model = init_model().to(device)
 
-criterion = nn.CrossEntropyLoss()
-optimizer = optim.Adam(model.parameters(), lr=0.0001)
+
 def accuracy(out, labels):
     _,pred = torch.max(out, dim=1)
     return torch.sum(pred==labels).item()
-def train(train_loader,valid_loader,model,n_epochs):
+def train(train_loader,valid_loader,model,n_epochs,device,optimizer,criterion):
 
     valid_loss_min = np.Inf
     val_loss = []
