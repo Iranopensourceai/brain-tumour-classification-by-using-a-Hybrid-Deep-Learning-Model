@@ -32,4 +32,4 @@ criterion = nn.CrossEntropyLoss()
 optimizer = optim.Adam(model.parameters(), lr=0.0001)
 
 train(train_loader,valid_loader,model,n_epochs,device,optimizer,criterion)
-test(valid_loader,model,device,)
+test(valid_loader,model,device)
