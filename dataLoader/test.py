@@ -5,7 +5,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import torch
 from sklearn.metrics import classification_report
-def test(valid_loader,model):
+def test(valid_loader,model,device):
     y_pred = []
     y_true = []
 
