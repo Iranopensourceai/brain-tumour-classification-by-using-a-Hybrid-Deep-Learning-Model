@@ -11,6 +11,7 @@ import torch.nn as nn
 from Model import init_model
 from torch import optim
 from train import train
+from test import test
 n_epochs =30
 BATCH_SIZE=32
 path = '/kaggle/input/brain-tumor-classification-mri/'
@@ -31,3 +32,4 @@ criterion = nn.CrossEntropyLoss()
 optimizer = optim.Adam(model.parameters(), lr=0.0001)
 
 train(train_loader,valid_loader,model,n_epochs,device,optimizer,criterion)
+test(valid_loader,model,device,)
