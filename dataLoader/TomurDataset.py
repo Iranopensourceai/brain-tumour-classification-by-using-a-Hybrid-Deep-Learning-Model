@@ -2,6 +2,8 @@ import os
 import torch
 from torch.utils.data import Dataset
 from preprocessing import prepare_image
+
+
 # dataset class: train
 class TomurTrainData(Dataset):
     
@@ -44,3 +46,4 @@ class TomurTestData(Dataset):
         image    = self.transform(image)
         label    = torch.tensor(self.data.loc[idx, 'diagnosis'])
         return {'image': image, 'label': label}
+
