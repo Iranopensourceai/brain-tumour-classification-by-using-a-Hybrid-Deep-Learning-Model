@@ -1,7 +1,7 @@
 import cv2
 import torch
 ### image preprocessing function
-def prepare_image(path):
+def prepare_image(path,image_size):
     # import image
     image = cv2.imread(path)
     image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)  
