@@ -17,8 +17,8 @@ def generate_datafram(path):
                 train_images.append(img_path)
                 train_labels.append(img_path.split('/')[-2])
             elif img_path.split('/')[-3] == 'Testing':
-                test_images.append(img_path)
-                test_labels.append(img_path.split('/')[-2])
-    train_df = pd.DataFrame(list(zip(train_images,train_labels)),columns = ['images','labels'])
-    test_df = pd.DataFrame(list(zip(test_images,test_labels)),columns = ['images','labels'])
-    return train_df,test_df
+                train_images.append(img_path)
+                train_labels.append(img_path.split('/')[-2])
+    df = pd.DataFrame(list(zip(train_images,train_labels)),columns = ['images','labels'])
+    #test_df = pd.DataFrame(list(zip(test_images,test_labels)),columns = ['images','labels'])
+    return df
