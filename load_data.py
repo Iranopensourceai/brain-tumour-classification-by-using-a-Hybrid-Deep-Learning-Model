@@ -32,7 +32,7 @@ def generate_datafram(path):
     #test_df = pd.DataFrame(list(zip(test_images,test_labels)),columns = ['images','labels'])
     return df
 
-data_df = generate_datafram()
+data_df = generate_datafram(path)
 from sklearn.model_selection import train_test_split
 train_df,test_df = train_test_split(data_df,test_size=0.2)
 
@@ -60,4 +60,4 @@ def Read_flow_from_dataframe(train_df,test_df):
                                                class_mode='categorical')
     return train_set,test_set
 
-train_set,test_set = Read_flow_from_dataframe(path)
+train_set,test_set = Read_flow_from_dataframe(train_df,test_df)
