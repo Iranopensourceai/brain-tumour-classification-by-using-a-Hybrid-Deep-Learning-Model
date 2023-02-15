@@ -15,8 +15,8 @@ from tensorflow.keras.preprocessing.image import ImageDataGenerator
 
 class_label= ["no_tumor", "pituitary_tumor", "meningioma_tumor", "glioma_tumor"]
 BATCH_SIZE=32
-
-def generate_datafram(path ='/kaggle/input/brain-tumor-classification-mri/'):
+path ='/kaggle/input/brain-tumor-classification-mri/'
+def generate_datafram(path):
     train_labels = []
     train_images = []
     for sub_dir,dir,files in os.walk(path):
@@ -60,4 +60,4 @@ def Read_flow_from_dataframe(train_df,test_df):
                                                class_mode='categorical')
     return train_set,test_set
 
-train_set,test_set = Read_flow_from_dataframe(train_df,test_df)
+train_set,test_set = Read_flow_from_dataframe(path)
