@@ -13,8 +13,9 @@ import numpy as np
 import os
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 
-class_label= ["no_tumor", "pituitary_tumor", "meningioma_tumor", "glioma_tumor"]
-BATCH_SIZE=32
+class_label = ["no_tumor", "pituitary_tumor", "meningioma_tumor", "glioma_tumor"]
+BATCH_SIZE = 32
+image_size = 224
 path ='/kaggle/input/brain-tumor-classification-mri/'
 def generate_datafram(path):
     train_labels = []
@@ -41,7 +42,7 @@ def Read_flow_from_dataframe(train_df,test_df):
     train_set= train_datagen.flow_from_dataframe(train_df,
                                                x_col='path',
                                                y_col='label',
-                                               target_size=(224, 224),
+                                               target_size=(image_size, image_size),
                                                classes=class_label,
                                                shuffle=True,
                                                batch_size=BATCH_SIZE,
@@ -53,7 +54,7 @@ def Read_flow_from_dataframe(train_df,test_df):
     test_set= test_datagen.flow_from_dataframe(test_df,
                                                x_col='path',
                                                y_col='label',
-                                               target_size=(224, 224),
+                                               target_size=(image_size, image_size),
                                                classes=class_label,
                                                shuffle=True,
                                                batch_size=BATCH_SIZE,
