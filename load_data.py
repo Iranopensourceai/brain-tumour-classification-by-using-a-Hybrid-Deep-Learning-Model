@@ -13,6 +13,7 @@ import numpy as np
 import os
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 from sklearn.model_selection import train_test_split
+
 # 2 . define const
 class_label = ["no_tumor", "pituitary_tumor", "meningioma_tumor", "glioma_tumor"]
 BATCH_SIZE = 32
@@ -44,7 +45,7 @@ train_df,test_df = train_test_split(data_df,test_size=0.2)
 # 3 . define ImageDataGenerator for read and preprocessing 
 def Read_flow_from_dataframe(train_df,test_df):
     train_datagen= ImageDataGenerator()
-    train_set= train_datagen.flow_from_dataframe(train_df,
+    train_generator= train_datagen.flow_from_dataframe(train_df,
                                                x_col='path',
                                                y_col='label',
                                                target_size=(image_size, image_size),
@@ -56,7 +57,7 @@ def Read_flow_from_dataframe(train_df,test_df):
     # test_datagen= ImageDataGenerator(rescale = 1./255)
     test_datagen= ImageDataGenerator()
 
-    test_set= test_datagen.flow_from_dataframe(test_df,
+    test_generator= test_datagen.flow_from_dataframe(test_df,
                                                x_col='path',
                                                y_col='label',
                                                target_size=(image_size, image_size),
@@ -64,6 +65,6 @@ def Read_flow_from_dataframe(train_df,test_df):
                                                shuffle=True,
                                                batch_size=BATCH_SIZE,
                                                class_mode='categorical')
-    return train_set,test_set
+    return train_generator,test_generator
 
-train_set,test_set = Read_flow_from_dataframe(train_df,test_df)
+train_generator,test_generator = Read_flow_from_dataframe(train_df,test_df)
