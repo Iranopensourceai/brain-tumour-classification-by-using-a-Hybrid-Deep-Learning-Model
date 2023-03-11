@@ -58,8 +58,7 @@ Use the `BLANK_README.md` to get started.
 ### Built With
 
 * [![tensorflow][tensorflow.js]][tensorflow-url]
-* [![keras][keras.js]][keras-url]
-* [![cv2][cv2.js]][cv2-url]
+* [![keras][keras.io]][keras-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
